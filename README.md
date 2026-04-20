@@ -55,15 +55,3 @@
 | قسم القراءة الجماعية | ![Reading](https://images.pexels.com/photos/8199673/pexels-photo-8199673.jpeg) |
 | بطاقات العضوية | ![Membership](https://images.pexels.com/photos/5256992/pexels-photo-5256992.jpeg) |
 
----
-
-## 🚀 كيفية تشغيل المشروع محليًا
-
-1. **انسخ الرابط**  
-   ```bash
-   git clone https://github.com/your-username/tech-book-club.git
-tech-book-club/
-│
-├── index.html          # الملف الرئيسي (HTML + CSS مدمج)
-├── README.md           # توثيق المشروع (هذا الملف)
-└── assets/ (اختياري)   # يمكن إضافة أي صور محلية لاحقًا
