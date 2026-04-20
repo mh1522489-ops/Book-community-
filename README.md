@@ -62,3 +62,8 @@
 1. **انسخ الرابط**  
    ```bash
    git clone https://github.com/your-username/tech-book-club.git
+tech-book-club/
+│
+├── index.html          # الملف الرئيسي (HTML + CSS مدمج)
+├── README.md           # توثيق المشروع (هذا الملف)
+└── assets/ (اختياري)   # يمكن إضافة أي صور محلية لاحقًا
