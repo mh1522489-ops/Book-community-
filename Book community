@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Tech Book Club | Professional Community</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f8faf6;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            padding: 2rem 1.5rem;
+            color: #1c2e1a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* تحسين الطباعة */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap');
+
+        /* ألوان احترافية متناسقة */
+        :root {
+            --dark-forest: #1a3a28;
+            --moss-green: #2b5a3b;
+            --honey-gold: #d98f2b;
+            --sand-light: #fefaf0;
+            --stone-gray: #eef2e7;
+            --charcoal: #2d3a2a;
+            --border-soft: #dde3d4;
+            --card-glow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02);
+        }
+
+        /* الحفاظ على كل الهيكل الأصلي لكن بتحسينات بصرية راقية */
+        body {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: var(--sand-light);
+            padding-bottom: 4rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--honey-gold);
+            border-left: 4px solid var(--honey-gold);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #h1 {
+            background: linear-gradient(125deg, #1f5e3a 20%, #e68a2e 80%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin: 0.5rem 0 1.2rem;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            color: #3f4d3a;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            max-width: 90%;
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: white;
+            border: 1.5px solid var(--dark-forest);
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark-forest);
+            transition: all 0.25s ease;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        button:hover {
+            background: var(--dark-forest);
+            color: white;
+            border-color: var(--dark-forest);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px -12px rgba(26, 58, 40, 0.3);
+        }
+
+        /* مجموعة الصور الرمزية (أفاتار) */
+        #img {
+            width: 48px;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2.5px solid white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+
+        #img:hover {
+            transform: scale(1.02);
+        }
+
+        #span {
+            font-size: 1.4rem;
+            letter-spacing: 6px;
+            margin-left: 8px;
+            display: inline-block;
+            background: #ffffffcc;
+            padding: 0 0.4rem;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+        }
+
+        #p2 {
+            transform: translateY(-5px);
+            background: #e7f0e2;
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--moss-green);
+        }
+
+        /* تحسين الصور داخل الحاويات */
+        #img2, #img3, #img4 {
+            width: 100%;
+            height: auto;
+            max-height: 560px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        #div1, #div2 {
+            width: 100%;
+            background: var(--stone-gray);
+            border-radius: 32px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: var(--card-glow);
+        }
+
+        figure {
+            margin: 0;
+            line-height: 0;
+        }
+
+        /* قائمة مميزة مع أيقونات شيك جميلة */
+        ul {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        li {
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            background: #ffffffaa;
+            padding: 0.5rem 0.8rem;
+            border-radius: 20px;
+            backdrop-filter: blur(2px);
+            border: 1px solid #e7ede0;
+        }
+
+        li input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--moss-green);
+            margin: 0;
+            cursor: pointer;
+        }
+
+        /* عناوين رئيسية أنيقة */
+        h1:not(#h1):not(#h1-2):not(#h1-3) {
+            font-size: 2.6rem;
+            margin: 1.8rem 0 1rem;
+            color: var(--dark-forest);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        /* قسم رحلة القراءة (محدث) */
+        #div4 {
+            width: 100%;
+            background: #ffffff;
+            border-radius: 48px;
+            padding: 2rem 1.5rem;
+            margin: 2.5rem 0;
+            box-shadow: var(--card-glow);
+            border: 1px solid var(--border-soft);
+        }
+
+        #h1-2 {
+            font-size: 2.3rem;
+            padding-left: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-forest);
+            font-weight: 800;
+        }
+
+        #h1-3 {
+            border: 2px solid var(--honey-gold);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 60px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0.5rem 0 0.2rem 0.5rem;
+            background: white;
+            color: var(--honey-gold);
+            transition: all 0.2s;
+        }
+
+        .p {
+            padding-left: 1rem;
+            margin: 0.2rem 0 1rem;
+            font-weight: 600;
+            color: #2d4a34;
+        }
+
+        /* بطاقات العضوية (مظهر بروفيشنال) */
+        .div5, #div6 {
+            width: 100%;
+            border-radius: 36px;
+            margin: 1.5rem 0;
+            padding: 1.8rem 1rem 2rem;
+            background: white;
+            border: 1px solid var(--border-soft);
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .div5:hover, #div6:hover {
+            transform: translateY(-8px);
+            border-color: var(--honey-gold);
+            box-shadow: 0 25px 35px -16px rgba(0, 0, 0, 0.12);
+        }
+
+        #h2, .h1-1 {
+            font-size: 2rem;
+            padding-left: 0.6rem;
+            font-weight: 800;
+            color: var(--dark-forest);
+            letter-spacing: -0.3px;
+        }
+
+        .span, #p10 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--honey-gold);
+            padding-left: 0.6rem;
+            margin: 0.3rem 0;
+        }
+
+        hr {
+            margin: 1rem 0.6rem;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #dadfcb, #b9c4ac, #dadfcb);
+        }
+
+        #p5, #input1, #p10 {
+            padding-left: 0.6rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0.8rem 0;
+            font-weight: 500;
+        }
+
+        #p5 input, #input1 input, #p10 input {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--moss-green);
+        }
+
+        #button2 {
+            width: 88%;
+            padding: 0.9rem;
+            background: transparent;
+            border: 1.8px solid var(--moss-green);
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-top: 1.4rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            cursor: pointer;
+            color: var(--moss-green);
+            transition: 0.2s;
+        }
+
+        #button2:hover {
+            background: var(--moss-green);
+            color: white;
+            border-color: var(--moss-green);
+            transform: scale(0.98);
+        }
+
+        /* تحسين صورة الـ community */
+        #img4 {
+            border-radius: 32px;
+            width: 100%;
+            margin: 1.2rem 0;
+            box-shadow: 0 12px 22px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* استجابة كاملة لجعلها مميزة للـ CV */
+        @media (min-width: 768px) {
+            body {
+                padding: 2rem 2.5rem;
+            }
+
+            button, #button2 {
+                width: 75%;
+            }
+
+            .div5, #div6 {
+                width: 85%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            #h1 {
+                font-size: 4.2rem;
+            }
+
+            li {
+                padding: 0.6rem 1.2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            body {
+                padding: 2.5rem 3rem;
+            }
+
+            .div5, #div6 {
+                width: 70%;
+            }
+        }
+
+        /* تحسين نصوص القوية */
+        strong {
+            color: #c97e2c;
+            font-weight: 700;
+        }
+
+        /* إضافة ظل خفيف للصور الرمزية */
+        #img {
+            transition: all 0.2s;
+        }
+        /* الحفاظ على جميع الأصول التى طلبتها دون إزالة أي عنصر */
+        .div5, #div6 {
+            background: #ffffff;
+        }
+        #p10, .span {
+            font-weight: 800;
+        }
+        /* أزرار بديهية */
+        button, #button2 {
+            font-family: inherit;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- تم الحفاظ الكامل على هيكل HTML الأصلي دون تعديل أي عنصر أو حذف أي كتلة 
+         فقط تحسين الألوان والمظهر الخارجي ليصبح عصري واحترافي يليق بالسيرة الذاتية -->
+    <h3>tech Book club</h3> 
+    <br />
+    <h1 id="h1">join the
+      ultimate tech book club</h1>
+    <p>Turn your reading time with fellow tech enthusiasm. Get curated recommendtion, join vibrant discussion, and level up your skills one chapter at a time</p>
+    <button>Review membership options</button>
+    
+    <img id="img" src="https://images.pexels.com/photos/17985673/pexels-photo-17985673.jpeg" alt="member">
+    <img id="img" src="https://images.pexels.com/photos/31599831/pexels-photo-31599831.jpeg" alt="member">
+    <img id="img" src="https://images.pexels.com/photos/31599830/pexels-photo-31599830.jpeg" alt="member">
+    <span id="span">👍👍👍👍👍</span>
+    <p id="p2">200+ developers joined already</p>
+    <br />
+    
+   <div id="div1">
+       <figure>
+           <img id="img2" src="https://images.pexels.com/photos/8199673/pexels-photo-8199673.jpeg" alt="book club meeting">   
+       </figure> 
+   </div> 
+   <br />
+   <h1>Read together,
+      <br />
+      grow together 
+   </h1>
+   <ul>
+      <li><input type="checkbox" id="checkbox"> Monthly curated tech read select by inustry expert</li>
+      <br />
+      <li><input type="checkbox"> Virtual and in-person meetups for deep-dive discussion</li>
+      <br />
+      <li><input type="checkbox"> Early access to new tech book release</li> 
+      <br />
+      <li><input type="checkbox"> author Q&A session with tech <br />thought leaders</li>
+   </ul>    
+   <div id="div2">
+       <figure>
+           <img id="img3" src="https://images.pexels.com/photos/6684505/pexels-photo-6684505.jpeg" alt="discussion">  
+       </figure>  
+   </div> 
+   <h1>Not your <br />average book <br />club</h1>   
+         
+   <p>connect with a community that<br>speeks your language -from <strong>python</strong><br />
+       to <strong>typescript</strong>
+       and everything in<br> between.our discussion blend<br> technical depth with practical<br>
+       application.</p> 
+            
+   <br />
+   <figure>
+       <img src="https://images.pexels.com/photos/5256992/pexels-photo-5256992.jpeg" id="img4" alt="community">
+   </figure>
+   <br />
+   <div id="div4">
+       <br>
+       <h1 id="h1-2">your tech<br>reading<br>journey</h1>
+        
+        <h1 id="h1-3">1</h1>
+        <br />
+        <p class="p"><strong>choose your membership tier</strong> </p>
+        <br />
+        <h1 id="h1-3">2</h1> 
+        <br />
+        <p class="p"> <strong>Get your monthly book<br> selection</strong>   </p>  
+        <br />
+        <h1 id="h1-3">3</h1>
+        <br />
+        <p class="p"><strong>join our discussion forums</strong></p>
+        <br />
+        <h1 id="h1-3">4</h1> 
+        <br />
+        <p class="p"><strong>attend exclusive meetups</strong></p>
+        
+   </div>  
+   <br />
+   <h1>membership<br>options</h1> 
+   <div class="div5">
+        <h2 id="h2">starter</h2>
+        <h1 class="span">$19/in month</h1>   
+        <hr>
+        <p id="p5"><input type="checkbox">1book/in month</p>    
+        <p id="p5"><input type="checkbox">online forums</p>    
+        <button id="button2">subscribe Now</button>  
+   </div> 
+   <br />
+   <div id="div6">
+        <h1 class="h1-1">pro</h1>  
+        <h1 id="p10">$29/in months</h1> 
+        <hr>
+        <p id="input1"><input type="checkbox">2book/month</p>
+        <p id="p10"><input type="checkbox">virtual meetups</p>
+        <button id="button2">subscribe Now</button>  
+   </div>     
+   
+</body>
+</html>
